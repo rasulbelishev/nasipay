@@ -28,18 +28,26 @@ class Filter_tx(BaseFilter):
 
 
 def start(bot, update):
-    bot.send_message(chat_id=update.message.chat_id, text="hello, stranger. Если интересноБ то вот Плюсы:\n— Повышает настроение. Особенно перед закидыванием. Не знаю почему, возможно сказывается зависимость. Когда сидишь пол ночи за компом работая над очередным заказом, часто сильно напрягаешься, что-то не получается.\n — После работы над проектом когда напряженка в голове, насвай помогает убрать весь этот негатив. Особенно перед сном или после тренировки с гантелями.\n— После накурки травой (или лучше хороших бошек, гашиша) усиляет эффект в три раза! Дает взрывной приход. Бывает даже сильно залипаешь. Правда только на пол часа. Но держать под губой не рекомендую больше пяти минут.\n— Стимулирует абстрактное мышление. Во время прихода может вызывать необычный подъем эмоциональных переживаний. Особенно если слушаешь музыку в беспроводных наушниках сидя на диване. У меня вошло в привычку качать и слушать trance music и саундтреки из фильмов во время упарывания. Заметил за собой положительные изменения в восприятии мира. Сложно описать ту гамму чувств которые порой наполняют голову во время эффекта.:\n А это командыЖ\n"
+    bot.send_message(chat_id=update.message.chat_id, text="hello, stranger. ШУЕ ППШ. NASWAY А это командыЖ\n"
                      "/check_address\n"
                      "/check_transactions\n"
                      "/blockchainstatus\n"
                      "/price\n"
                      "/start (this message)\n"
                      "/buy_some\n"
+                     "/pluses"
                      "\n"
                      "<b>If you add this bot in a chat group, do not give him permission to read the messages</b>\n"
                      "\n"
                      "If you have a problem with bot or you want send me your feedback, contact me @Mark_Chucerberc\n", parse_mode=telegram.ParseMode.HTML)
 
+
+def pluses(bot, update):
+    bot.send_message(chat_id=update.message.chat_id,
+                    text="Если интересноБ то вот Плюсы:\n— Повышает настроение. Особенно перед закидыванием. Не знаю почему, возможно сказывается зависимость. Когда сидишь пол ночи за компом работая над очередным заказом, часто сильно напрягаешься, что-то не получается.\n" 
+                     "— После работы над проектом когда напряженка в голове, насвай помогает убрать весь этот негатив. Особенно перед сном или после тренировки с гантелями.\n"
+                     "— После накурки травой (или лучше хороших бошек, гашиша) усиляет эффект в три раза! Дает взрывной приход. Бывает даже сильно залипаешь. Правда только на пол часа. Но держать под губой не рекомендую больше пяти минут.\n"
+                     "— Стимулирует абстрактное мышление. Во время прихода может вызывать необычный подъем эмоциональных переживаний. Особенно если слушаешь музыку в беспроводных наушниках сидя на диване. У меня вошло в привычку качать и слушать trance music и саундтреки из фильмов во время упарывания. Заметил за собой положительные изменения в восприятии мира. Сложно описать ту гамму чувств которые порой наполняют голову во время эффекта.:\n ")
 
 def buy_some(bot, update):
     bot.send_message(chat_id=update.message.chat_id,
@@ -168,6 +176,7 @@ if __name__ == "__main__":
     updater.dispatcher.add_handler(CommandHandler(
         "blockchainstatus", blockchainstatus))
     updater.dispatcher.add_handler(CommandHandler("price", price))
+    updater.dispatcher.add_handler(CommandHandler("pluses", pluses))
     updater.dispatcher.add_handler(CommandHandler("buy_some", buy_some))
     updater.dispatcher.add_handler(MessageHandler(filter_address_no, addrno))
 
